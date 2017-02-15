@@ -16,4 +16,8 @@
 -->
 <resources>
   <string name="app_name">Material Motion Physics for Android Sample</string>
+  <string name="intro" description="Explanation of a screen showing a demonstration of user interface elements simulating real-world physics as they move between points on the screen, and why such interactions are beneficial">
+    Physics based animations allow the user to dynamically affect the end value of the animation.
+    Drag any of the three dots to see how they affect the animation.
+  </string>
 </resources>

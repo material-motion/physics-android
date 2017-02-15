@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-present The Material Motion Authors. All Rights Reserved.
+ * Copyright 2017-present The Material Motion Authors. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,12 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.google.android.material.motion.physics;
+package com.google.android.material.motion.physics.math;
 
 /**
- * Material Motion Physics for Android library class.
+ * A class that contains utility methods related to vectors.
  */
-public class Library {
+public final class Vectors {
 
-  public static final String LIBRARY_NAME = "Material Motion Physics for Android";
+  private Vectors() {
+  }
+
+  public static float dot(Vector v1, Vector v2) {
+    return v1.dot(v2);
+  }
+
+  public static float angle(Vector v1, Vector v2) {
+    return v1.angle(v2);
+  }
+
+  public static float distance(Vector v1, Vector v2) {
+    return v1.distance(v2);
+  }
 }

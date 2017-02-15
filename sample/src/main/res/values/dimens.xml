@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <dimen name="circle_inset">10dp</dimen>
+  <dimen name="circle_size">40dp</dimen>
+  <dimen name="anchor_size">10dp</dimen>
+</resources>

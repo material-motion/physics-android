@@ -14,12 +14,52 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
 -->
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="match_parent"
-  android:layout_height="match_parent">
+  android:layout_height="match_parent"
+  android:clipChildren="false"
+  android:clipToPadding="false"
+  android:orientation="vertical"
+  android:padding="16dp">
+
   <TextView
-    android:id="@+id/text"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="Hello, World!"/>
-</FrameLayout>
+    android:text="@string/intro"
+    android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+  <com.google.android.material.motion.physics.sample.DragFrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_marginTop="20dp"
+    android:layout_weight="1"
+    android:clipChildren="false">
+
+    <ImageView
+      android:id="@+id/target"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="start|center_vertical"
+      android:contentDescription="@null"
+      android:importantForAccessibility="no"
+      android:src="@drawable/circle"/>
+
+    <ImageView
+      android:id="@+id/anchor1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="start|center_vertical"
+      android:contentDescription="@null"
+      android:importantForAccessibility="no"
+      android:src="@drawable/anchor1"/>
+
+    <ImageView
+      android:id="@+id/anchor2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="end|center_vertical"
+      android:contentDescription="@null"
+      android:importantForAccessibility="no"
+      android:src="@drawable/anchor2"/>
+  </com.google.android.material.motion.physics.sample.DragFrameLayout>
+</LinearLayout>
