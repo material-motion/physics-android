@@ -41,6 +41,10 @@ public class Rk4Integrator extends Integrator {
 
   private double accumulator;
 
+  public Rk4Integrator() {
+    super();
+  }
+
   public Rk4Integrator(Context context) {
     super(context);
   }

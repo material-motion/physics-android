@@ -19,6 +19,7 @@ import android.content.Context;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.provider.Settings.Global;
+import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.support.v4.util.SimpleArrayMap;
 
@@ -70,9 +71,9 @@ public abstract class Integrator {
   }
 
   /**
-   * This class provides empty implementations of the methods from {@link Listener}. Any
-   * custom listener that cares only about a subset of the methods of this listener can simply
-   * subclass this adapter class instead of implementing the interface directly.
+   * This class provides empty implementations of the methods from {@link Listener}. Any custom
+   * listener that cares only about a subset of the methods of this listener can simply subclass
+   * this adapter class instead of implementing the interface directly.
    */
   public abstract static class SimpleListener implements Listener {
 
@@ -130,8 +131,12 @@ public abstract class Integrator {
   private boolean isScheduled;
   private double lastTime = -1;
 
-  public Integrator(Context context) {
-    if (VERSION.SDK_INT >= VERSION_CODES.JELLY_BEAN_MR1) {
+  public Integrator() {
+    this(null);
+  }
+
+  public Integrator(@Nullable Context context) {
+    if (VERSION.SDK_INT >= VERSION_CODES.JELLY_BEAN_MR1 && context != null) {
       animatorDurationScale =
         Global.getFloat(context.getContentResolver(), Global.ANIMATOR_DURATION_SCALE, 1.0f);
     } else {
