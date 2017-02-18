@@ -25,6 +25,7 @@ import com.google.android.material.motion.physics.math.Vector;
  * @param <T> Subclass type. This is used to enable method chaining.
  */
 public abstract class AnchoredForce<T extends AnchoredForce<?>> implements Force {
+
   private final Vector anchorPoint = new Vector();
   private final T self;
 

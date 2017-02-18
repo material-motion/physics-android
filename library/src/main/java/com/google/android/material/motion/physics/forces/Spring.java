@@ -26,8 +26,8 @@ import static com.google.android.material.motion.physics.math.Vectors.dot;
  */
 public class Spring extends AnchoredForce<Spring> {
 
-  private final float k;
-  private final float b;
+  public float k = 342f;
+  public float b = 30f;
 
   private final Vector tmp1 = new Vector();
   private final Vector tmp2 = new Vector();
@@ -36,7 +36,11 @@ public class Spring extends AnchoredForce<Spring> {
    * Creates a spring with the given spring constant and damping coefficient.
    */
   public static Spring create(float k, float b) {
-    return new Spring(k, b);
+    Spring spring = new Spring();
+    spring.k = k;
+    spring.b = b;
+
+    return spring;
   }
 
   /**
@@ -47,19 +51,22 @@ public class Spring extends AnchoredForce<Spring> {
    * </ul>
    */
   public static Spring createCriticallyDamped(float k) {
-    return new Spring(k, (float) Math.sqrt(4 * Integrator.MASS * k));
+    Spring spring = new Spring();
+    spring.k = k;
+    spring.b = (float) Math.sqrt(4 * Integrator.MASS * k);
+
+    return spring;
   }
 
   /**
    * Creates a viscous frictional force that opposes the object's velocity.
    */
   public static Spring createFriction(float mu) {
-    return new Spring(0f, mu);
-  }
+    Spring spring = new Spring();
+    spring.k = 0f;
+    spring.b = mu;
 
-  private Spring(float k, float b) {
-    this.k = k;
-    this.b = b;
+    return spring;
   }
 
   @Override
