@@ -91,4 +91,12 @@ public class Spring extends AnchoredForce<Spring> {
     Vector displacement = displacement(x, tmp2);
     return 0.5f * k * dot(displacement, displacement);
   }
+
+  public static float tensionFromOrigamiValue(float value) {
+    return value == 0f ? 0f : (value - 30f) * 3.62f + 194f;
+  }
+
+  public static float frictionFromOrigamiValue(float value) {
+    return value == 0f ? 0f : (value - 8f) * 3f + 25f;
+  }
 }
