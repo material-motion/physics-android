@@ -60,6 +60,10 @@ public class Vector {
     return size;
   }
 
+  public float[] getValues() {
+    return checkNotNull(values);
+  }
+
   public float getValue(int index) {
     if (size == 0) {
       return 0f;
